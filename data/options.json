@@ -1,9 +1,9 @@
 {
 	"screen": {
-		"fullscreen": true,
+		"fullscreen": false,
 		"size": {
-			width: 800,
-			height: 800
+			"width": 800,
+			"height": 800
 		}
 	}
 	

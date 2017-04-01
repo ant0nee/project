@@ -2,12 +2,25 @@ public class Sprite{
  
   Hitbox[] hitbox; 
   PImage[] sprite; 
-  int frame = 0; 
-  
+  private int frame = 0; 
+  private int x = 0; 
+  private int y = 0; 
   Sprite(Hitbox[] _hitbox, PImage[] _sprite) {
     
     hitbox = _hitbox; 
     sprite = _sprite;
+    
+  }
+  
+  public int getX() {
+   
+    return x; 
+    
+  }
+  
+  public int getY() {
+   
+    return y; 
     
   }
   
@@ -24,19 +37,19 @@ public class Sprite{
       for (Hitbox hit2 : hitbox2) {
       
         if (
-          (
-            hit1.getHitbox()[Hitbox.X] <= hit2.getHitbox()[Hitbox.X] 
-            && hit1.getHitbox()[Hitbox.X] + hit1.getHitbox()[Hitbox.WIDTH] >= hit2.getHitbox()[Hitbox.X]
+          ((
+            x + hit1.getHitbox()[Hitbox.X] <= obj.getX() + hit2.getHitbox()[Hitbox.X] 
+            && x + hit1.getHitbox()[Hitbox.X] + hit1.getHitbox()[Hitbox.WIDTH] >= obj.getX() + hit2.getHitbox()[Hitbox.X]
           ) || (
-            hit2.getHitbox()[Hitbox.X] <= hit1.getHitbox()[Hitbox.X] 
-            && hit2.getHitbox()[Hitbox.X] + hit2.getHitbox()[Hitbox.WIDTH] >= hit1.getHitbox()[Hitbox.X]
+            obj.getX() + hit2.getHitbox()[Hitbox.X] <= x + hit1.getHitbox()[Hitbox.X] 
+            && obj.getX() + hit2.getHitbox()[Hitbox.X] + hit2.getHitbox()[Hitbox.WIDTH] >= x + hit1.getHitbox()[Hitbox.X]
+          )) && ((
+            y + hit1.getHitbox()[Hitbox.Y] <= obj.getY() + hit2.getHitbox()[Hitbox.Y] 
+            && y + hit1.getHitbox()[Hitbox.Y] + hit1.getHitbox()[Hitbox.HEIGHT] >= obj.getY() + hit2.getHitbox()[Hitbox.Y]
           ) || (
-            hit1.getHitbox()[Hitbox.Y] <= hit2.getHitbox()[Hitbox.Y] 
-            && hit1.getHitbox()[Hitbox.Y] + hit1.getHitbox()[Hitbox.HEIGHT] >= hit2.getHitbox()[Hitbox.Y]
-          ) || (
-            hit2.getHitbox()[Hitbox.Y] <= hit1.getHitbox()[Hitbox.Y] 
-            && hit2.getHitbox()[Hitbox.Y] + hit2.getHitbox()[Hitbox.HEIGHT] >= hit1.getHitbox()[Hitbox.Y]
-          )
+            obj.getY() + hit2.getHitbox()[Hitbox.Y] <= y + hit1.getHitbox()[Hitbox.Y] 
+            && obj.getY() + hit2.getHitbox()[Hitbox.Y] + hit2.getHitbox()[Hitbox.HEIGHT] >= y + hit1.getHitbox()[Hitbox.Y]
+          ))
         )
         {
           
@@ -57,16 +70,23 @@ public class Sprite{
     
   }
   
-  public void drawSprite(int _x, int _y) {
+  private void moveSprite(int _x, int _y) {
     
-    image(sprite[frame], _x, _y);
+    x = _x;
+    y = _y; 
+    
+  }
+  
+  public void drawSprite() {
+    
+    image(sprite[frame], x, y);
     frame = (frame + 1) % sprite.length;
     
   }
   
-  public void drawFrame(int _x, int _y, int _frame) {
+  public void drawFrame(int _frame) {
     
-    image(sprite[_frame], _x, _y);
+    image(sprite[_frame], x, y);
     
   }
   

@@ -15,9 +15,15 @@ void settings() {
   
 }
 
+Sprite test; 
+Sprite test2; 
 
 void setup() {
+  
 }
 
 void draw() {  
+
+
+  
 }
