@@ -38,17 +38,17 @@ public class Sprite{
       
         if (
           ((
-            x + hit1.getHitbox()[Hitbox.X] <= obj.getX() + hit2.getHitbox()[Hitbox.X] 
-            && x + hit1.getHitbox()[Hitbox.X] + hit1.getHitbox()[Hitbox.WIDTH] >= obj.getX() + hit2.getHitbox()[Hitbox.X]
+            x + hit1.getHitbox(Hitbox.X) <= obj.getX() + hit2.getHitbox(Hitbox.X) 
+            && x + hit1.getHitbox(Hitbox.X) + hit1.getHitbox(Hitbox.WIDTH) >= obj.getX() + hit2.getHitbox(Hitbox.X)
           ) || (
-            obj.getX() + hit2.getHitbox()[Hitbox.X] <= x + hit1.getHitbox()[Hitbox.X] 
-            && obj.getX() + hit2.getHitbox()[Hitbox.X] + hit2.getHitbox()[Hitbox.WIDTH] >= x + hit1.getHitbox()[Hitbox.X]
+            obj.getX() + hit2.getHitbox(Hitbox.X) <= x + hit1.getHitbox(Hitbox.X) 
+            && obj.getX() + hit2.getHitbox(Hitbox.X) + hit2.getHitbox(Hitbox.WIDTH) >= x + hit1.getHitbox(Hitbox.X)
           )) && ((
-            y + hit1.getHitbox()[Hitbox.Y] <= obj.getY() + hit2.getHitbox()[Hitbox.Y] 
-            && y + hit1.getHitbox()[Hitbox.Y] + hit1.getHitbox()[Hitbox.HEIGHT] >= obj.getY() + hit2.getHitbox()[Hitbox.Y]
+            y + hit1.getHitbox(Hitbox.Y) <= obj.getY() + hit2.getHitbox(Hitbox.Y) 
+            && y + hit1.getHitbox(Hitbox.Y) + hit1.getHitbox(Hitbox.HEIGHT) >= obj.getY() + hit2.getHitbox(Hitbox.Y)
           ) || (
-            obj.getY() + hit2.getHitbox()[Hitbox.Y] <= y + hit1.getHitbox()[Hitbox.Y] 
-            && obj.getY() + hit2.getHitbox()[Hitbox.Y] + hit2.getHitbox()[Hitbox.HEIGHT] >= y + hit1.getHitbox()[Hitbox.Y]
+            obj.getY() + hit2.getHitbox(Hitbox.Y) <= y + hit1.getHitbox(Hitbox.Y) 
+            && obj.getY() + hit2.getHitbox(Hitbox.Y) + hit2.getHitbox(Hitbox.HEIGHT) >= y + hit1.getHitbox(Hitbox.Y)
           ))
         )
         {
@@ -70,7 +70,7 @@ public class Sprite{
     
   }
   
-  private void moveSprite(int _x, int _y) {
+  public void moveSprite(int _x, int _y) {
     
     x = _x;
     y = _y; 

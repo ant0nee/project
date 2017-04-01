@@ -1,7 +1,7 @@
-JSONObject options; 
 void settings() {
  
-  options = loadJSONObject("options.json");
+  //load settings from file 
+  JSONObject options = loadJSONObject("options.json");
   if (options.getJSONObject("screen").getBoolean("fullscreen")) {
     fullScreen();  
   } else {
@@ -15,15 +15,10 @@ void settings() {
   
 }
 
-Sprite test; 
-Sprite test2; 
-
 void setup() {
   
 }
 
 void draw() {  
-
-
   
 }
