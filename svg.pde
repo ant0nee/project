@@ -17,8 +17,7 @@ PImage svgToPng(String path) {
     my_converter.transcode(input_svg_image, output_png_image);
     return loadImage(path.replace(".svg",".png")); 
   } catch (Exception e) {
-   e.printStackTrace();
-   return null;
+    return null;
   }
 }
 
