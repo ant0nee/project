@@ -1,3 +1,4 @@
+import anthony.*;
 void settings() {
  
   //load settings from file 
@@ -16,6 +17,8 @@ void settings() {
 }
 
 void setup() {
+  
+  SvgEditor.svgToPng("test");
   
 }
 
